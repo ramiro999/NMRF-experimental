@@ -40,7 +40,8 @@ def get_extensions():
             '-D__CUDA_NO_HALF2_OPERATORS__',
         ]
     else:
-        raise NotImplementedError('Cuda is not availabel')
+        print("Warning: CUDA is not available. Proceeding with CPU-only mode.")
+        extension = CppExtension  # Usa CPU extension
 
     sources = [os.path.join(extensions_dir, s) for s in sources]
     include_dirs = [extensions_dir]

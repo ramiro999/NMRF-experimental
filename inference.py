@@ -10,6 +10,9 @@ from nmrf.data import datasets
 from nmrf.utils import frame_utils
 from nmrf.utils import visualization
 from nmrf.models import build_model
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="torch.functional")
+
 
 
 def setup_cfg(args):
@@ -135,7 +138,7 @@ def _find_output_path(root):
 
 
 if __name__ == "__main__":
-    mp.set_start_method("spawn", force=True)
+    #mp.set_start_method("spawn", force=True)
     args = get_parser().parse_args()
     setup_logger(name="nmrf")
     logger = setup_logger()
@@ -144,8 +147,8 @@ if __name__ == "__main__":
     cfg = setup_cfg(args)
 
     model = build_model(cfg)[0]
-    model = model.to(torch.device("cuda"))
-    checkpoint = torch.load(cfg.SOLVER.RESUME, map_location="cuda")
+    model = model.to(torch.device("cpu"))
+    checkpoint = torch.load(cfg.SOLVER.RESUME, map_location="cpu")
     weights = checkpoint['model'] if 'model' in checkpoint else checkpoint
     model.load_state_dict(weights, strict=cfg.SOLVER.STRICT_RESUME)
 

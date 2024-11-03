@@ -306,8 +306,8 @@ class KITTI(StereoDataset):
                 images2 = sorted(glob(osp.join(root, 'testing', 'colored_1/*_10.png')))
             elif image_set == 'kitti_2015':
                 root = osp.join(root, 'KITTI_2015')
-                images1 = sorted(glob(osp.join(root, 'testing', 'image_2/*_10.png')))
-                images2 = sorted(glob(osp.join(root, 'testing', 'image_3/*_10.png')))
+                images1 = sorted(glob(osp.join(root, 'testing', 'image_left/*_10.png')))
+                images2 = sorted(glob(osp.join(root, 'testing', 'image_right/*_10.png')))
             else:
                 raise ValueError("Unknown dataset for test: '{}'".format(image_set))
             for img1, img2 in zip(images1, images2):

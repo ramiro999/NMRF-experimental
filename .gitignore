@@ -17,3 +17,7 @@ datasets/
 build/
 dist/
 *.egg-info/
+
+# dataset and results kitti
+
+resultados_kitti/

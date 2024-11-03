@@ -329,7 +329,7 @@ def main(args):
     cfg = setup(args)
 
     model, criterion = build_model(cfg)
-    model = model.to(torch.device("cuda"))
+    model = model.to(torch.device("cpu"))
 
     if comm.get_world_size() > 1:
         model = torch.nn.parallel.DistributedDataParallel(
@@ -358,7 +358,7 @@ def main(args):
     if resume:
         logger.info('Load checkpoint: %s' % resume)
 
-        loc = 'cuda'
+        loc = 'cpu'
         checkpoint = torch.load(resume, map_location=loc)
 
         weights = checkpoint['model'] if 'model' in checkpoint else checkpoint
