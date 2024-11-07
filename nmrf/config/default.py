@@ -1,3 +1,4 @@
+# config default.py:
 from .config import CfgNode as CN
 
 # NOTE: given the new config system

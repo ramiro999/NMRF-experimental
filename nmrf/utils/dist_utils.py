@@ -1,3 +1,4 @@
+# utils dist_utils.py
 # Copyright (c) OpenMMLab. All rights reserved.
 # https://github.com/open-mmlab/mmcv/blob/7540cf73ac7e5d1e14d0ffbd9b6759e83929ecfc/mmcv/runner/dist_utils.py
 import functools

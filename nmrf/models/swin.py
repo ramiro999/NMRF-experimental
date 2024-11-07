@@ -1,3 +1,4 @@
+# models swin.py:
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 """
 Implementation of Swin models from :paper:`swin`.
